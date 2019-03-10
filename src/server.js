@@ -17,17 +17,15 @@ server.on('request',(req,resp)=>{
         body.push(c);
     }).on('end',()=>{
         body = Buffer.concat(body).toString();
-        let a = (async function (){
-            let package = qs.parse(q)['package'];
-            let result = await fi.read_(dd_root,package).then((r)=>{
-                resp.write(r);
-                resp.end("\n");
-            }).catch((e)=>{
-                console.log(e.message);
-                resp.write(e.custom_message+"\n");
-                resp.end();
-            });
-        })()
+        let package = qs.parse(q)['package'];
+        fi.read(dd_root,package).then((r)=>{
+            resp.write(r);
+            resp.end("\n");
+        }).catch((e)=>{
+            console.log(e.message);
+            resp.write(e.custom_message+"\n");
+            resp.end();
+        });
     })
 });    
 server.listen(port); 

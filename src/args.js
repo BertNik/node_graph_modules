@@ -1,7 +1,7 @@
 const getParam = (param, process)=>{
     if(process.argv.indexOf(param) !== -1 && typeof process.argv[process.argv.indexOf(param)+1] === 'string')
-        return process.argv[process.argv.indexOf(param)+1];
-    else return;
+    return process.argv[process.argv.indexOf(param)+1];
+    else return false;
 }
 exports.getPackage = function(process){
     const param = "-p";

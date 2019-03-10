@@ -6,7 +6,7 @@ exports.write = function(path, packageName, api_data){
     });
 };
 
-exports.read_ = function(...path_package){
+exports.read = function(...path_package){
     return new Promise ((res,rej) => {
         fs.readFile(`${path_package[0]}/${path_package[1]}.json`, {encoding:'utf-8'}, (err, data)=>{
             if(err){

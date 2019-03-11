@@ -1,5 +1,4 @@
-const https = require('https'), registryurl = 'registry.npmjs.org', 
-fetch = require('node-fetch'), fi = require('./file_s'), processArgs = require('./args');
+const registryurl = 'registry.npmjs.org', fetch = require('node-fetch'), fi = require('./file_s'), processArgs = require('./args');
 
 let packageName = processArgs.getPackage(process),
 path = processArgs.getPath(process),

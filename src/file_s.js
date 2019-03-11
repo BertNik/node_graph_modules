@@ -5,7 +5,6 @@ exports.write = function(path, packageName, api_data){
         console.log("*".repeat(100)+"\nfile written successfully!\nfile:\t"+`${path}/${packageName}.json`+"\n"+"*".repeat(100));
     });
 };
-
 exports.read = function(...path_package){
     if(path_package[1] === undefined)return new Promise((res,rej)=>{res(false)});
     let _path_package = path_package;
@@ -17,10 +16,10 @@ exports.read = function(...path_package){
                 return;
             }
             res(data);
-        })
-    })}
-
+        });
+    });
+};
 exports.exists = function(...path_package){
     if(fs.existsSync(`${path_package[0]}/${path_package[1]}.json`))return console.log(`${path_package[0]}/${path_package[1]}.json`);
     return false;
-}
+};
